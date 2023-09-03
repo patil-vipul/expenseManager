@@ -1,0 +1,109 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Manager</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <script src="jquery.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+
+  <div>
+    <div class="container">
+
+
+
+      <div class="row mt-3 overflow-hidden">
+        <div class="col-12 col-sm-8">
+          <h1 class="display-3">Expense Manager</h1>
+        </div>
+        <div class="col-12 col-sm-4 align-self-center">
+          <div class="card w-100" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Balance</h5>
+              <p class="card-text m-0">
+                <span class="muted">&#8377;</span>
+                  <span class="font-weight-bold" id="userBalance"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="modal fade" id="newRecordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">New Record</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <select class="custom-select my-1 mr-sm-2" id="entryType">
+                  <option selected>Record Type</option>
+                  <option value="expense">Debit</option>
+                  <option value="credit">Credit</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Name / Particulars</label>
+                <input type="email" class="form-control" id="entryParticulars" aria-describedby="emailHelp"
+                  placeholder="Enter Particulars">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Amount</label>
+                <input class="form-control" id="entryAmount" placeholder="Amount">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="addEntry">Add Record</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-12 col-sm-6 mt-1 d-none d-md-block">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Create new record</h5>
+              <p class="card-text">New entries will be shown here for preview</p>
+
+              <div id="newDataDiv" style="overflow:auto;"></div>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newRecordModal">
+                New Entry
+              </button>
+              <button id="saveData" type="button" class="btn btn-success" disabled>Save</button>
+              <button type="button" id="discardData" class="btn btn-secondary" disabled>Discard</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 mt-1">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Past records</h5>
+              <div id="oldDataDiv" class="table-responsive-sm"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
